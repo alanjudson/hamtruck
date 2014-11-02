@@ -1,0 +1,41 @@
+<h1><%= pluralize(@trucks.size, 'Truck') %> <% pluralize(@trucks.size, 'is') %> in Hamilton.</h1>
+
+	<%= link_to "New Truck", new_truck_path %>
+
+	<div id="map-canvas"></div>
+	<div class="container-fluid" id="main">
+	  <div class="row">
+	  	<div class="col-xs-8" id="left">
+
+	      <h2>Where is my food truck?</h2>
+
+			<% @trucks.each do |truck| %>
+	      <!-- item list -->
+				<article class="trucks">
+					<header>
+						<%= link_to image_for(truck), truck %>
+						<div class="">
+	       				 <div class=""><h3><%= link_to truck.name, truck %></h3></div>
+	      				</div>
+					</header>
+
+					<h3>Cuisine Type:</h3>
+					<p>
+						They make <%= truck.cuisine_type %>.
+					</p>
+					<h3>Location:</h3>
+					<p><%= truck.address %>
+					<p>Location last updated <%= time_ago_in_words(truck.updated_at) %> ago.</p>
+					<hr>
+				</article>
+			<% end %>
+
+	      <!-- /item list -->
+
+	    </div>
+	    <div class="col-xs-4"><!--map-canvas will be postioned here--></div>
+
+	  </div>
+	</div>
+	<!-- end template -->
+

@@ -1,0 +1,17 @@
+<% if @truck.errors.any? %>
+<section id="errors">
+  <header>
+    <h2>
+      Oops! The <%= @truck.class.name.humanize.downcase %> could not be saved.
+    </h2>
+    <h3>
+      Please correct the following <%= pluralize(@truck.errors.count, "error") %>:
+    </h3>
+  </header>
+  <ul>
+    <% @truck.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+</section>
+<% end %>

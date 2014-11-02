@@ -1,0 +1,32 @@
+<%= form_for(@truck) do |f| %>
+<%= render 'shared/errors' %>
+	<p>
+		<%= f.label :name %>
+		<%= f.text_field :name, autofocus: true %>
+	</p>
+	<p>
+		<%= f.label :cuisine_type %>
+		<%= f.text_field :cuisine_type %>
+	</p>
+	<p>
+		<%= f.label :address %>
+		<%= f.text_field :address %>
+	</p>
+<!-- 	<p>
+		<%#= f.label :longitude %>
+		<%#= f.number_field :longitude %>
+	</p>
+	<p>
+		<%#= f.label :latitude %>
+		<%#= f.number_field :latitude %>
+	</p> -->
+	<p>
+		<%= f.label :image_file_name %>
+		<%= f.text_field :image_file_name, size: 30,
+				placeholder: "GIF, JPG, or PNG file name" %>
+	</p>
+	<p>
+		<%= f.submit %>
+		<%= link_to "Cancel", trucks_path %>
+	</p>
+<% end %>
