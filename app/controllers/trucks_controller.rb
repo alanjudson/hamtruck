@@ -9,6 +9,8 @@ class TrucksController < ApplicationController
 	end
 
 	def show
+		@review = Review.new
+		@reviews = Review.all
 		@truck = Truck.find(params[:id])
 	end
 
@@ -19,6 +21,7 @@ class TrucksController < ApplicationController
 	def update
 		@truck = Truck.find(params[:id])
 		if @truck.update(truck_params)
+			flash[:notice] = "Event successfully updated."
 			redirect_to @truck
 		else
 			render :edit

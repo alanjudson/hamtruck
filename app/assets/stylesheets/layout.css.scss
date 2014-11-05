@@ -2,3 +2,20 @@ footer#page-footer {
 	color: #F0F0F0;
 	background: black;
 }
+
+fieldset {
+  li.required.stars {
+    input[type="radio"] {
+      display: inline-block;
+      margin-right: 3px;
+    }
+
+    .star {
+      margin-right: 10px;
+    }
+  }
+}
+
+article {
+  padding: 20px;
+}

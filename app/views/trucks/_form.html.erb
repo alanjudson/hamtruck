@@ -1,5 +1,5 @@
 <%= form_for(@truck) do |f| %>
-<%= render 'shared/errors' %>
+<%= render 'shared/errors', object: @truck %>
 	<p>
 		<%= f.label :name %>
 		<%= f.text_field :name, autofocus: true %>

@@ -73,3 +73,16 @@ body{
 .map-canvas img{
     max-width: none;
 }
+
+fieldset {
+  .stars {
+    input[type="radio"] {
+      display: inline-block;
+      margin-right: 3px;
+    }
+
+    .star {
+      margin-right: 10px;
+    }
+  }
+}
