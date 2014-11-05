@@ -3,7 +3,7 @@ class ReviewsController < ApplicationController
 	before_action :set_truck
 
 	def index
-		@reviews = @truck.reviews
+		@reviews = @truck.reviews.order("created_at desc")
 	end
 
 	def new

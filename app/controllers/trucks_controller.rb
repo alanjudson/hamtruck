@@ -9,9 +9,9 @@ class TrucksController < ApplicationController
 	end
 
 	def show
-		@review = Review.new
-		@reviews = Review.all
 		@truck = Truck.find(params[:id])
+		@review = Review.new
+		@reviews = @truck.display_reviews
 	end
 
 	def edit

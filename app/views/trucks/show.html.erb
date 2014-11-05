@@ -31,25 +31,32 @@
         <li><%= link_to truck.address, truck %> (<%= truck.distance.round(2) %> kms)</li>
       <% end %>
     </ul>
+
   <h3><%= link_to pluralize(@truck.reviews.count, "Review"), truck_reviews_path(@truck) %></h3>
+  <h4>Add yours below:</h4>
 
   <%= render 'reviews/form' %>
-
-<h3><strong>People's Reviews</strong></h3>
-
-<ol id="reviews">
-  <% @reviews.each do |review| %>
-    <li>
-      <span class="review"><%= pluralize(review.stars, 'star') %></span>
-      <span class="user">by <%= review.name %></span>
-      <span class="date"><%= time_ago_in_words(review.created_at) %> ago</span>
-      <p>
-        &quot;<%= review.comment %>&quot;
-      </p>
-    </li>
+  <hr>
+  <ol id="reviews">
+    <% @reviews.each do |review| %>
+      <li>
+        <span class="review"><%= pluralize(review.stars, 'star') %></span>
+        <span class="user">by <%= review.name %></span>
+        <span class="date"><%= time_ago_in_words(review.created_at) %> ago</span>
+        <p>
+          &quot;<%= review.comment %>&quot;
+        </p>
+      </li>
+    <% end %>
+  </ol>
+  <% if @truck.reviews.any? %>
+    <p>
+      Read all <%= link_to pluralize(@truck.reviews.size, "review"),
+                      truck_reviews_path(@truck) %>
+    </p>
   <% end %>
-</ol>
 </article>
+
 <%= link_to "Write a Review", new_truck_review_path(@truck) %>
 <%= link_to "All Trucks", trucks_path %> |
 <%= link_to "Edit", edit_truck_path %> |

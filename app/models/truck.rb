@@ -11,4 +11,9 @@ class Truck < ActiveRecord::Base
 		with: /\w+\.(gif|jpg|png)\z/i,
 		message: "must reference a GIF, JPG, or PNG image"
 	}
+
+
+  def display_reviews
+    reviews.order("created_at desc").limit(5)
+  end
 end
