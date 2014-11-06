@@ -9,13 +9,15 @@ Truck.create!([
   {
     name: 'Johnny Blonde',
     cuisine_type: 'Tapas',
+    image_file_name: 'jonny_blonde.png'
   },
   {
     name: 'Gorilla Cheese',
     cuisine_type: 'Primate Dinner',
+    image_file_name:, 'gorilla_cheese.png'
   },
   {
     name: "Jimbo's Fish Emporium",
-    cuisine_type: 'Fish',
+    cuisine_type: 'Fish'
   }
 ])
