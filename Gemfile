@@ -5,7 +5,7 @@ ruby '2.0.0'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
 group :development, :test do
-	gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 group :production do
@@ -37,7 +37,7 @@ gem 'geocoder'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'therubyracer',  platforms: :ruby
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
