@@ -61,19 +61,6 @@ body{
 	height:100%;
 }
 
-#map-canvas {
-	width:33.3333%;
-    height:calc(100% - 0);
-    position:absolute;
-    right:16px;
-    top:50px;
-    bottom:0;
-    overflow:hidden;
-}
-.map-canvas img{
-    max-width: none;
-}
-
 fieldset {
   .stars {
     input[type="radio"] {
