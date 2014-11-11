@@ -25,12 +25,14 @@
     <%= time_ago_in_words(@truck.updated_at) %> ago.
   </p>
 
-  <h3><strong>Nearby Eateries</strong></h3>
-    <ul>
-      <% for truck in @truck.nearbys(10) %>
-        <li><%= link_to truck.address, truck %> (<%= truck.distance.round(2) %> kms)</li>
-      <% end %>
-    </ul>
+  <% if !@truck.address.blank? %>
+    <h3><strong>Nearby Eateries</strong></h3>
+      <ul>
+        <% for truck in @truck.nearbys(10) %>
+          <li><%= link_to truck.name, truck %> (<%= truck.distance.round(2) %> kms)</li>
+        <% end %>
+      </ul>
+  <% end %>
 
   <h3><%= link_to pluralize(@truck.reviews.count, "Review"), truck_reviews_path(@truck) %></h3>
   <h4>Add yours below:</h4>

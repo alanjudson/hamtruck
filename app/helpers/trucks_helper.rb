@@ -7,6 +7,12 @@ module TrucksHelper
 		end
 	end
 
+	def address_status(truck)
+		if truck.address.blank?
+			render 'trucks/address'
+		end
+	end
+
 	def image_for(truck)
 		if truck.image_file_name.blank?
 			image_tag 'placeholder.jpeg'
