@@ -17,6 +17,6 @@
     <h3><strong>Nearby Eateries</strong></h3>
       <ul>
         <% for truck in @truck.nearbys(10) %>
-          <li><%= link_to truck.name, truck %> (<%= truck.distance.round(2) %> kms)</li>
+            <li><%= link_to options = truck.name, truck %> <%= truck.address %> (<%= truck.distance.round(2) %> kms)</li>
         <% end %>
       </ul>
