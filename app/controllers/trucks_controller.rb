@@ -9,6 +9,7 @@ class TrucksController < ApplicationController
 		@hash = Gmaps4rails.build_markers(@trucks) do |truck, marker|
 		  marker.lat truck.latitude
 		  marker.lng truck.longitude
+		  marker.infowindow truck.name
 		end
 	end
 
