@@ -1,0 +1,22 @@
+  <p>
+      <%= @truck.address %>
+  </p>
+
+  <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@truck.latitude}%2C#{@truck.longitude}" %>
+
+  <h3>Longitude and Latitude</h3>
+  <p>
+      Longitude, Latitude: <%= @truck.longitude %>,
+      <%= @truck.latitude %>
+  </p>
+  <h3>Updated:</h3>
+  <p>
+    <%= time_ago_in_words(@truck.updated_at) %> ago.
+  </p>
+
+    <h3><strong>Nearby Eateries</strong></h3>
+      <ul>
+        <% for truck in @truck.nearbys(10) %>
+          <li><%= link_to truck.name, truck %> (<%= truck.distance.round(2) %> kms)</li>
+        <% end %>
+      </ul>

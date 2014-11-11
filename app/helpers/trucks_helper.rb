@@ -9,6 +9,8 @@ module TrucksHelper
 
 	def address_status(truck)
 		if truck.address.blank?
+			content_tag(:p, "Let's put something amazing here!")
+		else
 			render 'trucks/address'
 		end
 	end
