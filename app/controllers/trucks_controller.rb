@@ -10,6 +10,11 @@ class TrucksController < ApplicationController
 		  marker.lat truck.latitude
 		  marker.lng truck.longitude
 		  marker.infowindow truck.name
+		  marker.picture({
+      "url" => "assets/icon.png",
+      "width" =>  36,
+      "height" => 36})
+		  marker.json({ title: truck.name })
 		end
 	end
 
