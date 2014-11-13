@@ -41,6 +41,8 @@ gem 'therubyracer',  platforms: :ruby
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem 'paperclip'
+gem 'aws-sdk'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

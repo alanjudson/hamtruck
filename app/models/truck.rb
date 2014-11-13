@@ -1,16 +1,16 @@
 class Truck < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
+  has_attached_file :image
 
   geocoded_by :address
   after_validation :geocode, :reverse_geocode,
   :if => lambda{ |obj| obj.address_changed? }
 
   validates :name, :cuisine_type, presence: true
-  validates :image_file_name, allow_blank: true, format: {
-		with: /\w+\.(gif|jpg|png)\z/i,
-		message: "must reference a GIF, JPG, or PNG image"
-	}
+  validates_attachment :image,
+    :content_type => { :content_type => ['image/jpeg','image/png'] },
+    :size => { :less_than => 1.megabyte }
 
 
   def display_reviews

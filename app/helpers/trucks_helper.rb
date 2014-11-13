@@ -16,10 +16,10 @@ module TrucksHelper
 	end
 
 	def image_for(truck)
-		if truck.image_file_name.blank?
-			image_tag 'placeholder.jpeg'
+		if truck.image.exists?
+			image_tag truck.image.url
 		else
-			image_tag truck.image_file_name
+			image_tag 'placeholder.jpeg'
 		end
 	end
 end

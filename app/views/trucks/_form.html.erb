@@ -21,9 +21,11 @@
 		<%#= f.number_field :latitude %>
 	</p> -->
 	<p>
-		<%= f.label :image_file_name %>
-		<%= f.text_field :image_file_name, size: 30,
-				placeholder: "GIF, JPG, or PNG file name" %>
+		<%= f.label :image %>
+		<%= f.file_field :image %>
+	</p>
+	<p>
+		<%= image_for(@truck) %>
 	</p>
 	<p>
 		<%= f.submit %>
