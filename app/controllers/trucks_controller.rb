@@ -11,7 +11,7 @@ class TrucksController < ApplicationController
 		  marker.lng truck.longitude
 		  marker.infowindow truck.name
 		  marker.picture({
-      "url" => "assets/icon.png",
+      "url" => "https://upload.wikimedia.org/wikipedia/commons/0/0a/Map_marker_icon_%E2%80%93_Nicolas_Mollet_%E2%80%93_Truck_%E2%80%93_Transportation_%E2%80%93_Default.png",
       "width" =>  36,
       "height" => 36})
 		  marker.json({ title: truck.name })
