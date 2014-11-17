@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :users
+
   root "trucks#index"
   # get "trucks" => "trucks#index"
   # get "trucks/:id" => "trucks#show", as: "truck"
