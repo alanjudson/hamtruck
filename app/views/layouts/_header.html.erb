@@ -16,10 +16,11 @@
             <%= form_tag trucks_path, :method => :get do %>
               <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'Enter your location?' %>
             <% end %>
+
           </div>
         </div>
       </form>
     </div>
 </div>
-
+    <%= link_to 'Sign Up', signup_path, class: 'button' %>
 
