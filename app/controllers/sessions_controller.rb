@@ -3,7 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-  	params[:email]
-  	params[:password]
+  	if user = User.authenticate(params[:email],params[:password])
+  		session[:user_id] = user.id
+			flash[:notice] = "Welcome back, #{user.name}!"
+    	redirect_to user
+  	else
+  		flash.now[:alert] = "Wrong email/password combo. Try again."
+  		render :new
+  	end
   end
 end
