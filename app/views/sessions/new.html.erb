@@ -1,0 +1,23 @@
+<header>
+	<h1>Sign in</h1>
+</header>
+
+<!-- not form_for (there's no model) we just want to create new session, so we use create path - session_path -->
+<%= form_tag(session_path) do %>
+	<fieldset>
+		<p>
+			<%= label_tag :email %>
+			<%= email_field_tag :email, nil, autofocus: true %>
+		</p>
+		<p>
+			<%= label_tag :password %>
+			<%= password_field_tag :password, nil %>
+		</p>
+		<p>
+			<%= submit_tag "Sign In" %>
+		</p>
+	</fieldset>
+<% end %>
+<p>
+	A truck without an account? <%= link_to "Sign Up!", signup_path %>
+</p>
