@@ -40,8 +40,10 @@
 
 <%= link_to "Write a Review", new_truck_review_path(@truck) %>
 <%= link_to "All Trucks", trucks_path %> |
-<%= link_to "Edit", edit_truck_path %> |
-<%= link_to "Delete", truck_path(@truck), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% if current_user_admin? %>
+  <%= link_to "Edit", edit_truck_path %> |
+  <%= link_to "Delete", truck_path(@truck), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 
 
 
