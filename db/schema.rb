@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201165340) do
+ActiveRecord::Schema.define(version: 20141202192908) do
 
   create_table "reviews", force: true do |t|
-    t.string   "name"
     t.integer  "stars"
     t.string   "comment"
     t.integer  "truck_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "reviews", ["truck_id"], name: "index_reviews_on_truck_id"

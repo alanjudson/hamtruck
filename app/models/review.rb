@@ -1,9 +1,9 @@
 class Review < ActiveRecord::Base
   belongs_to :truck
+  belongs_to :user
 
   STARS = [1,2,3,4,5]
 
-  validates_presence_of :name
   validates :comment, length: { minimum: 4 }
   validates :stars, inclusion: {
 	  in: STARS,
