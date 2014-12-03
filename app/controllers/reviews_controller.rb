@@ -1,5 +1,5 @@
-class ReviewsController < ApplicationController
-
+	class ReviewsController < ApplicationController
+	before_action :require_signin
 	before_action :set_truck
 
 	def index
@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
 
 	def create
 		@review = @truck.reviews.new(review_params)
+		@review.user = current_user
 		if @review.save
 			redirect_to truck_path(@truck), notice: "Thanks for the review!"
 		else
@@ -26,6 +27,6 @@ private
 	end
 
 	def review_params
-		params.require(:review).permit(:name,:comment,:stars)
+		params.require(:review).permit(:comment,:stars)
 	end
 end
