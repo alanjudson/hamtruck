@@ -14,9 +14,11 @@
   <%= address_status(@truck) %>
 
   <h3><%= link_to pluralize(@truck.reviews.count, "Review"), truck_reviews_path(@truck) %></h3>
-  <h4>Add yours below:</h4>
 
-  <%= render 'reviews/form' %>
+  <% if current_user %>
+    <h4>Add yours below:</h4>
+    <%= render 'reviews/form' %>
+  <% end %>
   <hr>
   <ol id="reviews">
     <% @reviews.each do |review| %>
