@@ -15,5 +15,6 @@ Rails.application.routes.draw do
 
   resources :trucks do
   	resources :reviews
+    resources :follows
   end
 end

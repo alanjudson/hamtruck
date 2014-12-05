@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
+  has_many :follows, dependent: :destroy
+  has_many :trucks_followed, through: :follows, source: :truck
 
   has_secure_password
 

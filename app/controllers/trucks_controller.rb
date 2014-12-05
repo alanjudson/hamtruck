@@ -13,9 +13,9 @@ class TrucksController < ApplicationController
 		  marker.lng truck.longitude
 		  marker.infowindow truck.name
 		  marker.picture({
-      "url" => "https://upload.wikimedia.org/wikipedia/commons/0/0a/Map_marker_icon_%E2%80%93_Nicolas_Mollet_%E2%80%93_Truck_%E2%80%93_Transportation_%E2%80%93_Default.png",
-      "width" =>  36,
-      "height" => 36})
+		      "url" => "https://upload.wikimedia.org/wikipedia/commons/0/0a/Map_marker_icon_%E2%80%93_Nicolas_Mollet_%E2%80%93_Truck_%E2%80%93_Transportation_%E2%80%93_Default.png",
+		      "width" =>  36,
+		      "height" => 36})
 		  marker.json({ title: truck.name })
 		end
 	end
@@ -24,6 +24,11 @@ class TrucksController < ApplicationController
 		@truck = Truck.find(params[:id])
 		@review = Review.new
 		@reviews = @truck.display_reviews
+		@fans = @truck.fans
+
+		if current_user
+			@current_fan = current_user.follows.find_by(truck_id: @truck.id)
+		end
 	end
 
 	def edit

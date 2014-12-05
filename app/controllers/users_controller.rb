@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		@trucks_followed = @user.trucks_followed
 	end
 
 	def new

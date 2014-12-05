@@ -20,6 +20,30 @@
     <%= render 'reviews/form' %>
   <% end %>
   <hr>
+
+  <h3><%= pluralize(@fans.size, "Fan") %></h3>
+  <% if current_user %>
+    <!-- checks to see if person is already a fan-->
+    <% if @current_fan %>
+      <!-- since the follows routes are nested in truck routes, you need 2 ids, the truck and the current user -->
+      <%= button_to "Unfollow", truck_follow_path(@truck, @current_fan), method: :delete %>
+    <% else %>
+      <%= button_to "Follow", truck_follows_path(@truck) %>
+    <% end %>
+  <% end %>
+
+  <% if @fans.any? %>
+    <h3><%= pluralize(@fans.size,"Fan") %></h3>
+    <ul>
+      <% @fans.each do |user| %>
+        <li>
+          <%= profile_image_for(user, size: 35) %>
+          <%= link_to user.name, user %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <hr>
   <ol id="reviews">
     <% @reviews.each do |review| %>
       <li>
@@ -34,6 +58,7 @@
       </li>
     <% end %>
   </ol>
+
   <% if @truck.reviews.any? %>
     <p>
       Read all <%= link_to pluralize(@truck.reviews.size, "review"),
