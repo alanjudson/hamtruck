@@ -28,6 +28,10 @@
 		<%= image_for(@truck) %>
 	</p>
 	<p>
+		<!-- (1. the array in truck model holding cuisine type ids, 2. Model call to cuisine types, 3. Value of the checkbox from Cuisine_type 4. Label of checkbox is CuisineType name ) -->
+		<%= f.collection_check_boxes(:cuisine_type_ids,CuisineType.all,:id,:name) %>
+	</p>
+	<p>
 		<%= f.submit %>
 		<%= link_to "Cancel", trucks_path %>
 	</p>

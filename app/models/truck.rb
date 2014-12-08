@@ -4,6 +4,8 @@ class Truck < ActiveRecord::Base
   has_many :follows, dependent: :destroy
   # go through the follows association and get users, but call them fans
   has_many :fans, through: :follows, source: :user
+  has_many :categorizations, dependent: :destroy
+  has_many :cuisine_types, through: :categorizations
   has_attached_file :image
 
   geocoded_by :address

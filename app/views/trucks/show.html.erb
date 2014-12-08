@@ -65,6 +65,14 @@
                       truck_reviews_path(@truck) %>
     </p>
   <% end %>
+  <h3>Cuisine Type</h3>
+  <ul>
+    <% @cuisine_types.each do |cuisine_type| %>
+      <li>
+        <%= cuisine_type.name %>
+      </li>
+    <% end %>
+  </ul>
 </article>
 
 <%= link_to "Write a Review", new_truck_review_path(@truck) %>
