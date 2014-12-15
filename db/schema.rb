@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141210172814) do
+ActiveRecord::Schema.define(version: 20141215200329) do
 
   create_table "categorizations", force: true do |t|
     t.integer  "truck_id"
@@ -62,6 +62,9 @@ ActiveRecord::Schema.define(version: 20141210172814) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "payment_options"
+    t.text     "description"
+    t.string   "price_range"
   end
 
   create_table "users", force: true do |t|

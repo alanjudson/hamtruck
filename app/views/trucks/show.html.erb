@@ -3,13 +3,21 @@
     <%= image_for(@truck) %>
     <h1><%= @truck.name %></h1>
   </header>
-  <h2>Cuisine Type:</h2>
-
+  
+  <h4>Price Range</h3>
   <p>
-    <%= @truck.cuisine_type %>
+    <%= @truck.price_range %>
   </p>
-  <h3>Current Address</h3>
+  <h4>Payment Options</h3>
+  <p>
+    <%= @truck.payment_options %>
+  </p>
+  <h3>Description</h3>
+  <p>
+    <%= @truck.description %>
+  </p>
 
+  <h3>Current Address</h3>
   <!-- if there's an address, it fetches partial, else it displays a message -->
   <%= address_status(@truck) %>
 

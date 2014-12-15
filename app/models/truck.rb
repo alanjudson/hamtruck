@@ -17,7 +17,7 @@ class Truck < ActiveRecord::Base
   validates_attachment :image,
     :content_type => { :content_type => ['image/jpeg','image/png'] },
     :size => { :less_than => 1.megabyte }
-
+  PAYMENT_OPTIONS = ["Cash, Credit, Interac, PayPal"]
 
   def display_reviews
     reviews.order("created_at desc").limit(5)

@@ -68,6 +68,6 @@ class TrucksController < ApplicationController
 	private
 
 	def truck_params
-		params.require(:truck).permit(:name, :cuisine_type, :address, :longitude, :latitude, :image, cuisine_type_ids: [])
+		params.require(:truck).permit(:name, :cuisine_type, :address, :longitude, :latitude, :payment_options, :description, :price_range, :image, cuisine_type_ids: [])
 	end
 end
