@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141208172729) do
+ActiveRecord::Schema.define(version: 20141210172814) do
 
   create_table "categorizations", force: true do |t|
     t.integer  "truck_id"
@@ -72,6 +72,9 @@ ActiveRecord::Schema.define(version: 20141208172729) do
     t.datetime "updated_at"
     t.string   "username"
     t.boolean  "admin",           default: false
+    t.string   "ip_address"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
 end

@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  geocoded_by :ip_address,
+  :latitude => :lat, :longitude => :lon
+  after_validation :geocode
+
   has_many :reviews, dependent: :destroy
   has_many :follows, dependent: :destroy
   has_many :trucks_followed, through: :follows, source: :truck

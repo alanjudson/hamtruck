@@ -9,8 +9,9 @@ class Truck < ActiveRecord::Base
   has_attached_file :image
 
   geocoded_by :address
-  after_validation :geocode, :reverse_geocode,
+  after_validation :geocode,
   :if => lambda{ |obj| obj.address_changed? }
+
 
   validates :name, :cuisine_type, presence: true
   validates_attachment :image,
