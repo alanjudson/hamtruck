@@ -28,13 +28,13 @@
 	      				</div>
 					</header>
 
-					<h3>Cuisine Type:</h3>
-					<p>
-						They make <%= truck.cuisine_type %>.
-					</p>
+					<h3>Payment and Pricing:</h3>
+						<%= truck.payment_options %><br>
+						
+						<%= truck.price_range %>
 					<h3>Location:</h3>
-					<p><%= truck.address %>
-					<p>Location last updated <%= time_ago_in_words(truck.updated_at) %> ago.</p>
+					<%= truck.address %>
+					(Location last updated <%= time_ago_in_words(truck.updated_at) %> ago.)
 						<h3><%= Random.rand(0..2.0).round(2) %> kms</h3>
 					<hr>
 				</article>
