@@ -6,7 +6,7 @@ class TrucksController < ApplicationController
 		if params[:search].present?
 			@trucks = Truck.near(params[:search])
 		else
-			@trucks = Truck.all
+			@trucks = Truck.recent
 		end
 		@hash = Gmaps4rails.build_markers(@trucks) do |truck, marker|
 		  marker.lat truck.latitude

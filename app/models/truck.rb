@@ -18,10 +18,10 @@ class Truck < ActiveRecord::Base
     :size => { :less_than => 1.megabyte }
   PAYMENT_OPTIONS = ["Cash, Credit, Interac, PayPal"]
 
-  scope :past, -> { where('updated_at < ?', Time.now).order('updated_at asc') } 
+  scope :recent, -> { where('updated_at < ?', Time.now).order('updated_at desc') } 
   scope :popular, -> { all.sort { |a, b| a.fans.count <=> b.fans.count } }
-  
-  
+
+
   def display_reviews
     reviews.order("created_at desc").limit(5)
   end
