@@ -13,12 +13,15 @@ class Truck < ActiveRecord::Base
   :if => lambda{ |obj| obj.address_changed? }
 
 
-  validates :name, :cuisine_type, presence: true
   validates_attachment :image,
     :content_type => { :content_type => ['image/jpeg','image/png'] },
     :size => { :less_than => 1.megabyte }
   PAYMENT_OPTIONS = ["Cash, Credit, Interac, PayPal"]
 
+  scope :past, -> { where('updated_at < ?', Time.now).order('updated_at asc') } 
+  scope :popular, -> { all.sort { |a, b| a.fans.count <=> b.fans.count } }
+  
+  
   def display_reviews
     reviews.order("created_at desc").limit(5)
   end
