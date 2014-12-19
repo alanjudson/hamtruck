@@ -21,7 +21,7 @@ class TrucksController < ApplicationController
 	end
 
 	def show
-		@truck = Truck.find(params[:id])
+		@truck = Truck.friendly.find(params[:id])
 		@review = Review.new
 		@reviews = @truck.display_reviews
 		@fans = @truck.fans
@@ -33,11 +33,11 @@ class TrucksController < ApplicationController
 	end
 
 	def edit
-		@truck = Truck.find(params[:id])
+		@truck = Truck.friendly.find(params[:id])
 	end
 
 	def update
-		@truck = Truck.find(params[:id])
+		@truck = Truck.friendly.find(params[:id])
 		if @truck.update(truck_params)
 			flash[:notice] = "Event successfully updated."
 			redirect_to @truck
@@ -60,7 +60,7 @@ class TrucksController < ApplicationController
 	end
 
 	def destroy
-		@truck = Truck.find(params[:id])
+		@truck = Truck.friendly.find(params[:id])
 		@truck.destroy
 		redirect_to trucks_url
 	end

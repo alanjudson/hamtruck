@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219184702) do
+ActiveRecord::Schema.define(version: 20141219185939) do
 
   create_table "categorizations", force: true do |t|
     t.integer  "truck_id"
@@ -65,7 +65,10 @@ ActiveRecord::Schema.define(version: 20141219184702) do
     t.string   "payment_options"
     t.text     "description"
     t.string   "price_range"
+    t.string   "slug"
   end
+
+  add_index "trucks", ["slug"], name: "index_trucks_on_slug", unique: true
 
   create_table "users", force: true do |t|
     t.string   "name"

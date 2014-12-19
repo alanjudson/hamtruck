@@ -1,4 +1,6 @@
 class Truck < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
 
   has_many :reviews, dependent: :destroy
   has_many :follows, dependent: :destroy
