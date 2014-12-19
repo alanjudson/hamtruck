@@ -2,12 +2,13 @@ class UsersController < ApplicationController
 	before_action :require_signin, except: [:new, :create]
 	before_action :require_correct_user, only: [:edit, :update, :destroy]
 	before_action :require_admin, only: [:destroy]
+	
 	def index
 		@users = User.all
 	end
 
 	def show
-		@user = User.find(params[:id])
+		@user = User.friendly.find(params[:id])
 		@trucks_followed = @user.trucks_followed
 	end
 
@@ -50,7 +51,7 @@ private
 	end
 
 	def require_correct_user
-		@user = User.find(params[:id])
+		@user = User.friendly.find(params[:id])
 		unless current_user?(@user)
 			redirect_to root_url
 		end

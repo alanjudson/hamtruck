@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   geocoded_by :ip_address,
   :latitude => :lat, :longitude => :lon
   after_validation :geocode
