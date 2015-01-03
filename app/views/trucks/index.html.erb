@@ -35,6 +35,11 @@
 					<h3>Location:</h3>
 					<%= truck.address %>
 					(Location last updated <%= time_ago_in_words(truck.updated_at) %> ago.)
+					<div class="query">
+						<i>Is this location corrent?<i>
+						<%= link_to "Enter correct address", truck %>
+					</div>
+						
 						<h3><%= Random.rand(0..2.0).round(2) %> kms</h3>
 					<hr>
 				</article>
