@@ -21,6 +21,6 @@ private
 
 	def set_truck
 		# gets the current truck
-		@truck = Truck.find(params[:truck_id])
+		@truck = Truck.friendly.find(params[:id])
 	end
 end
