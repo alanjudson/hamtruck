@@ -23,7 +23,7 @@
 private
 
 	def set_truck
-		@truck = Truck.find(params[:truck_id])
+		@truck = Truck.friendly.find(params[:truck_id])
 	end
 
 	def review_params

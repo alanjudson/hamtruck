@@ -1,4 +1,5 @@
 class FollowsController < ApplicationController
+
 	before_action :set_truck
 	# this helps us be making sure the user is signed in
 	before_action :require_signin
@@ -21,6 +22,6 @@ private
 
 	def set_truck
 		# gets the current truck
-		@truck = Truck.friendly.find(params[:id])
+		@truck = Truck.friendly.find(params[:truck_id])
 	end
 end

@@ -22,7 +22,7 @@
   <!-- if there's an address, it fetches partial, else it displays a message -->
   <%= address_status(@truck) %>
 
-  <h3><%= link_to pluralize(@truck.reviews.count, "Review"), truck_reviews_path(@truck) %></h3>
+  <h3><%= link_to pluralize(@truck.reviews.count, "Review"), truck_reviews_path(@truck, @current_user) %></h3>
 
   <% if current_user %>
     <h4>Add yours below:</h4>
@@ -37,7 +37,7 @@
       <!-- since the follows routes are nested in truck routes, you need 2 ids, the truck and the current user -->
       <%= button_to "Unfollow", truck_follow_path(@truck, @current_fan), method: :delete %>
     <% else %>
-      <%= button_to "Follow", truck_follows_path(@truck) %>
+      <%= button_to "Follow", truck_follows_path(@truck, @current_fan) %>
     <% end %>
   <% end %>
 
