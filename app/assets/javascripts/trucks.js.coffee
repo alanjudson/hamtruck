@@ -1,3 +1,19 @@
+$ ->
+
+  success = (position) -> 
+    lat = position.coords.latitude
+    lng = position.coords.longitude
+    window.location.replace("/trucks?search=#{ lat } #{ lng }")
+
+  error = ->
+    alert('oops!')
+
+  on_click_event_function = (e) ->
+    navigator.geolocation.getCurrentPosition(success, error)
+    e.preventDefault()
+
+  $('#find-nearby-trucks').on 'click', on_click_event_function
+
 class RichMarkerBuilder extends Gmaps.Google.Builders.Marker #inherit from builtin builder
   #override create_marker method
   create_marker: ->
